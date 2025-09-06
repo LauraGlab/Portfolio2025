@@ -1,0 +1,52 @@
+@media (pointer: coarse) {
+  .custom-cursor {
+    display: none;
+  }
+}
+
+.custom-cursor {
+  cursor: none;
+  height: 20px;
+  pointer-events: none;
+  position: fixed;
+  transform: translate(-2px, -2px); 
+  width: 20px;
+  z-index: 9999;
+}
+
+.cursor-icon {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.cursor-trail {
+  animation: fadeTrail 0.3s ease-out forwards;
+  background: rgba(255, 105, 180, 0.8);
+  border-radius: 50%;
+  height: 8px;
+  pointer-events: none;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  z-index: 9998;
+}
+
+body.dark .cursor-icon {
+  fill: var(--dm-purple-400);
+}
+
+body.dark .cursor-trail {
+  background: rgba(168, 85, 247, 0.8);
+}
+
+@keyframes fadeTrail {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+}
